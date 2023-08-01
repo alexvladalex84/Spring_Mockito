@@ -4,18 +4,19 @@ import java.util.Objects;
 
 public class Employee {
     public static int idCounter = 0;
-    private final int id;
-    private String surName;
-    private String name;
+//    private final Integer id;
+    private String firstName;
+    private String lastName;
     private int salary;
     private int department;
 
-    public Employee(String surName, String name, int salary, int department) {
-        this.surName = surName;
-        this.name = name;
+    public Employee(String firstName, String lastName, int salary, int department) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.salary = salary;
         this.department = department;
-        this.id = idCounter++;
+//        this.id = idCounter++;
+
     }
 
     public static int getIdCounter() {
@@ -26,20 +27,20 @@ public class Employee {
         Employee.idCounter = idCounter;
     }
 
-    public String getSurName() {
-        return surName;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setSurName(String surName) {
-        this.surName = surName;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getName() {
-        return name;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public int getSalary() {
@@ -58,18 +59,18 @@ public class Employee {
         this.department = department;
     }
 
-    public int getId() {
-        return id;
-    }
+//    public Integer getId() {
+//        return id;
+//    }
 
     @Override
     public String toString() {
         return "Employee{" +
-                "id=" + id +
-                ", surName='" + surName + '\'' +
-                ", name='" + name + '\'' +
-                ", salary=" + salary +
-                ", department=" + department +
+//                "id=" + id +
+                ", firstName - " + firstName + '\'' +
+                ", lastName - " + lastName + '\'' +
+                ", salary - " + salary +
+                ", department - " + department +
                 '}';
     }
 
@@ -78,11 +79,11 @@ public class Employee {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Employee employee = (Employee) o;
-        return id == employee.id && salary == employee.salary && department == employee.department && Objects.equals(surName, employee.surName) && Objects.equals(name, employee.name);
+        return salary == employee.salary && department == employee.department && firstName.equals(employee.firstName) && lastName.equals(employee.lastName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, surName, name, salary, department);
+        return Objects.hash(firstName, lastName, salary, department);
     }
 }
